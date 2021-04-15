@@ -1,0 +1,123 @@
+{% extends 'sightings/base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+<div class="jumbotron">
+	<div class="container">
+		<h1 class="display-3">Add a Sighting</h1>
+		<p class="lead">
+	Voila! Saw a Squirrel? Please add your new sighting here.
+		</p>
+	</div>
+</div>
+<div class="container">
+		<form id="submit" method="post" action="{% url 'sightings:create' %}">
+		{% csrf_token %}
+		<div class="row mb-3">
+			<div class="col-md-4 themed-grid-col"><strong> Required Information </strong> </div>
+			<div class="col-md-8 themed-grid-col">
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Latitude </div>
+					<div class="col-md-6 themed-grid-col"><input type="float" name="latitude" id="latitude"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Longitude </div>
+                                	<div class="col-md-6 themed-grid-col"><input type="float" name="longitude" id="longitude"></div>
+				</div>
+                <div class="row">
+					<div class="col-md-6 themed-grid-col"> Unique Squirrel ID </div>
+					<div class="col-md-6 themed-grid-col"><input type="text"  name="unique_squirrel_id" id="unique_squirrel_id"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Shift </div>
+                                	<div class="col-md-6 themed-grid-col">
+						<select id="shift" name="shift">
+                                      			<option value = "AM">AM</option>
+                                      			<option value = "PM">PM</option>
+                                		</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Date </div>
+					<div class="col-md-6 themed-grid-col"><input type="date" name="date" id="date"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Age </div>
+                                	<div class="col-md-6 themed-grid-col">
+						<select id="age" name="age">
+                                        		<option value = "Adult">adult</option>
+                                                <option value = "Juvenile">juvenile</option>
+                                        		<option value = "N/A">unknown</option>
+                               			 </select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 themed-grid-col"><strong> Optional Information </strong> </div>
+			<div class="col-md-8 themed-grid-col">
+				<div class="pb-3"><strong>Fur Color</strong></div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Primary Fur Color </div>
+                                	<div class="col-md-6 themed-grid-col">
+						<select id="primary_fur_color" name="primary_fur_color">
+                                        		<option value = "Gray">gray</option>
+                                        		<option value = "Cinnamon">cinnamon</option>
+                                        		<option value = "Black">black</option>
+                                		</select>
+					</div>
+				</div>
+				<div class="pb-3"><strong>Location</strong></div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Location </div>
+                                	<div class="col-md-6 themed-grid-col">
+                                        	<select id="location" name="location">
+                                        		<option value = "Ground Plane">Ground Plane</option>
+                                        		<option value = "Above Ground">Above Ground</option>
+                                        	</select>
+                                	</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Specific Location </div>
+                                	<div class="col-md-6 themed-grid-col"><input type="text" name="specific_location" id="specific_location"></div>
+				</div>
+				<div class="pb-3"><strong> Action </strong></div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Squirrel's Caught in the Act </div>
+					<div class="col-md-6 themed-grid-col">
+						<label><input type="Checkbox" name="running" id="running" value="TRUE">Running</label>
+						<label><input type="checkbox" name="chasing" id="chasing" value="TRUE">Chasing</label>
+						<label><input type="checkbox" name="climbing" id="climbing" value="TRUE">Climbing</label>
+						<label><input type="checkbox" name="eating" id="eating" value="TRUE">Eating</label>
+						<label><input type="checkbox" nmae="foraging" id="foraging" value="TRUE">Foraging</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Other Activities </div>
+					<div class="col-md-6 themed-grid-col"><input type="text" name="other_activities" id="other_activities"></div>
+				</div>
+				<div class="pb-3"><strong> Reaction </strong></div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Squirrel's Reaction </div>
+					<div class="col-md-6 themed-grid-col">
+						<label><input type="checkbox" name="kuks" id="kuks" value="TRUE">Kuks</label>
+						<label><input type="checkbox" name="quaas" id="quaas" value="TRUE">Quaas</label>
+						<label><input type="checkbox" name="moans" id="moans" value="TRUE">Moans</label>
+						<label><input type="checkbox" name="tail_flags" id="tail_flags" value="TRUE">Tail Flags</label>
+						<label><input type="checkbox" name="tail_twitch" id="tail_twitch" value="TRUE">Tail Twitches</label>
+						<label><input type="checkbox" name="approaches" id="approaches" value="TRUE">Approaches</label>
+						<label><input type="checkbox" name="indifferent" id="indifferent" value="TRUE">Indifferent</label>
+						<label><input type="checkbox" name="runs_from" id="runs_from" value="TRUE">Runs From </label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 themed-grid-col"> Other Interactions </div>
+					<div class="col-md-6 themed-grid-col"><input type="text" name="other_interactions" id="other_interactions"></div>
+				</div>
+			</div>
+		</div>
+			<input type="submit" value="ADD">
+	</form>
+	<a class="btn btn-outline-primary" href="/sightings">BACK to Lists</a>
+
+	{% endblock %}

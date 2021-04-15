@@ -1,0 +1,63 @@
+{% extends 'sightings/base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+
+<div class="jumbotron">
+        <div class="container">
+                <h1 class="display-3">Sightings Stats</h1>
+                <p>
+                General statistics
+                </p>
+        </div>
+</div>
+
+<div class="container">
+	<h2> Total Number of Sightings : {{ squirrels.count }}</h2>
+	<p>
+	<h3> Shift Stats </h3>
+	<ul>
+		<li> Number of sightings in AM shift : {{ AM.count }} </li>
+		<li> Number of sightings in PM shift : {{ PM.count }} </li>
+	</ul>
+	</p>
+
+	<p>
+	<h3> Age Stats </h3>
+	<ul>
+		<li> Number of ADULT squirrels : {{ Adult.count }} </li>
+		<li> Number of JUVENILE squirrels : {{ Juven.count }} </li>
+	</ul>
+	</p>
+
+	<p>
+	<h3> Location Stats </h3>
+	<ul>
+		<li> Number of sightings found ABOVE GROUND : {{ AbGr.count }} </li>
+		<li> Number of sightings found on GROUND PLANE : {{GrPl.count}} </li>
+	</ul>
+	</p>
+
+	<p>
+	<h3> Primary Fur Color Stats </h3>
+	<ul>
+		<li> Number of squirrels with primary BLACK fur color : {{Black.count}} </li>
+		<li> Number of squirrels with primary GRAY fur color : {{Gray.count}} </li>
+		<li> Number of squirrels with primary CINNAMON fur color: {{Cinnamon.count}} </li>
+	</ul>
+	</p>
+
+	<p>
+	<h3> Specific Location Stats </h3>
+	<ul>
+		<li> Number of sightings without SPECIFIC LOCATION stats : {{SpeLoc.count}} </li>
+	</ul>
+	</p>
+     
+        <hr>
+	<a class="btn btn-outline-primary" href="/sightings/">Back to Sightings</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'sightings/base.html' %}
+
+{% load static %}
+  
+{% block main %}
+
+<div class="jumbotron">
+        <div class="container">
+                <h1> {{squirrel.unique_squirrel_id}}</h1>
+                <p class="lead">
+                Please update any necessary information about the sighting.
+                </p>
+	</div>
+</div>
+	<div class="container">
+		<form id="submit" method="post">
+				  {% csrf_token %}
+            <div class="row mb-3">
+			<div class="col-md-4 themed-grid-col"><strong>Latitude</strong></div>
+			<div class="col-md-8 themed-grid-col"><input type='float' name='latitude' id='latitude'>    Current: {{squirrel.latitude}}</div>
+			<div class="col-md-4 themed-grid-col"><strong>Longitude</strong></div>
+			<div class="col-md-8 themed-grid-col"><input type='float' name='longitude' id='longitude'>   Current: {{squirrel.longitude}}</div>
+			<div class="col-md-4 themed-grid-col"><strong>Unique Squirrel ID</strong></div>
+            <div class="col-md-8 themed-grid-col">{{squirrel.unique_squirrel_id}}</div>
+            <div class="col-md-4 themed-grid-col"><strong>Shift</strong></div>
+			<div class="col-md-8 themed-grid-col"><select name="shift" id="shift">
+					<option value="AM">AM</option>
+					<option value="PM">PM</option></select>    Current:{{squirrel.shift}}</div>
+			<div class="col-md-4 themed-grid-col"><strong>Date</strong></div>
+			<div class="col-md-8 themed-grid-col"><input type='date' name='date' id='date'>    Current: {{squirrel.date}}</div>
+			<div class="col-md-4 themed-grid-col"><strong>Age</strong></div>
+                        <div class="col-md-8 themed-grid-col"><select name='age' id='age'>
+                                <option value='Adult'>Adult</option>
+                                <option value='Juvenile'>Juvenile</option>
+				<option value='unknown'>Unknown</option></select>    Current: {{squirrel.age}}</div>
+			<input type="submit" value="EDIT">
+                </div>
+                </form>
+        	<a class="btn btn-outline-primary" href="/sightings/{{ squirrel.unique_squirrel_id }}">BACK</a>
+	</div>	
+                {% endblock %}

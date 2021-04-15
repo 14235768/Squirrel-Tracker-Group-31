@@ -1,0 +1,32 @@
+{% extends 'sightings/base.html' %}
+
+{% load static %}
+
+{% block main %}
+	<div class="jumbotron">
+		<div class="container">
+			<h1> {{squirrel.unique_squirrel_id}}</h1>
+			<p class="lead">
+			Please update any necessary information about your sighting.
+			</p>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row mb-3">
+			<div class="col-md-4 themed-grid-col"><strong>Latitude</strong></div>
+			<div class="col-md-8 themed-grid-col">{{squirrel.latitude}}</div></br>
+			<div class="col-md-4 themed-grid-col"><strong>Longitude</strong></div>
+			<div class="col-md-8 themed-grid-col">{{squirrel.longitude}}</div></br>
+            <div class="col-md-4 themed-grid-col"><strong>Unique Squirrel ID</strong></div>
+			<div class="col-md-8 themed-grid-col">{{squirrel.unique_squirrel_id}}</div>
+			<div class="col-md-4 themed-grid-col"><strong>Shift</strong></div>
+			<div class="col-md-8 themed-grid-col">{{squirrel.shift}}</div></br>
+			<div class="col-md-4 themed-grid-col"><strong>Date</strong></div>
+			<div class="col-md-8 themed-grid-col">{{squirrel.date}}</div></br>
+			<div class="col-md-4 themed-grid-col"><strong>Age</strong></div>
+			<div class="col-md-8 themed-grid-col">{{squirrel.age}}</div></br>
+		</div>
+		<a class="btn btn-outline-primary" href="/sightings/{{ squirrel.unique_squirrel_id }}/update/">EDIT</a>
+		<a class="btn btn-outline-primary" href="/sightings/">BACK to lists</a>
+	</div>
+		{% endblock %}

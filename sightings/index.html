@@ -1,0 +1,42 @@
+{% extends 'sightings/base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+<div class="jumbotron">
+	<div class="container">
+		<h1 class="display-3">Squirrel Tracker</h1>
+		<p>
+		Peace, Love, SQUIRRELS! Welcome to our website that allows you to allows you to view, add, and edit sightings of squirrels in Central Park.
+		</p>
+        <p>
+          <a class="btn btn-primary btn-lg" href="/sightings/stats/"role="button"> General Squirrel Statistics </a>
+        </p>
+		<p>
+          <a class="btn btn-primary btn-lg" href="/sightings/add/" role="button"> Add New Squirrel Sighting </a>
+		</p>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		{% for squirrel in squirrels %}
+		<div class="col-md-4">
+			<h2> {{squirrel.unique_squirrel_id }} </h2>
+			<p>
+			<ul>
+				<li> Date : {{squirrel.date}} </li>
+			</ul>
+			<p>
+			<p>
+			<a class="btn btn-secondary" href="/sightings/{{ squirrel.unique_squirrel_id }}/"> Update Squirrel Sighting </a>
+			<p>
+
+		</div>
+		{% endfor %}
+	</div>
+	<hr>
+</div>
+
+{% endblock %}
