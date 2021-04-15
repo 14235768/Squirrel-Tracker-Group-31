@@ -10,7 +10,6 @@ The app contains these functions:
 3. general statistics 
 4. a map
 
-Link to the server running our application: 
 
 (The project was done by Carrie Oh and Junyeong Park)
 
