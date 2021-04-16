@@ -32,24 +32,20 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="../">Home</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/map/">Map <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/sightings/">Sightings</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/sightings/add">Add</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/sightings/stats">Statistics</a>
-              </li>
-
+                <li class="nav-item active">
+                    <a class="nav-link" href="/map/">Map<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/sightings/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sightings</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="/sightings/add">Add Sightings</a>
+                        <a class="dropdown-item" href="/sightings/stats"> General Stats</a>
+                    </div>
+                </li>
             </ul>
+  </div>
           </div>
         </nav>
 
@@ -80,8 +76,8 @@
         <!-- L.Icon.Default.prototype.options.shadowSize = 15; -->
         <!-- L.Icon.Default.prototype.options.shadowAnchor = [0, 0]; -->
 
-        {% for sighting in sightings %}
-          var point_lat_lon = [{{ sighting.latitude }}, {{ sighting.longitude }}];
+        {% for squirrel in squirrels %}
+          var point_lat_lon = [{{ squirrel.latitude }}, {{ squirrel.longitude }}];
           var marker = L.marker(point_lat_lon).addTo(map);
         {% endfor %}
     </script>
