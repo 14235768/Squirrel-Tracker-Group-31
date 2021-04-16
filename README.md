@@ -41,7 +41,7 @@ The app contains these sub functions:
 4. a map 
    http://127.0.0.1:8000/map/
    
- <img width="240" alt="Screen Shot 2021-04-16 at 4 09 51 PM" src="https://user-images.githubusercontent.com/47429809/114985973-629f7100-9ece-11eb-879d-58e2e6ad5e15.png">
+   <img width="240" alt="Screen Shot 2021-04-16 at 4 09 51 PM" src="https://user-images.githubusercontent.com/47429809/114985973-629f7100-9ece-11eb-879d-58e2e6ad5e15.png">
  
 Home Link: http://127.0.0.1:8000/sightings/
 
