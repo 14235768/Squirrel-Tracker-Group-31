@@ -5,14 +5,14 @@
 {% block main %}
 
 <div class="jumbotron">
-	<div class="container">
+	<div class="container" align="center">
 		<h1 class="display-3">Add a Sighting</h1>
 		<p class="lead">
-	Voila! Saw a Squirrel? Please add your new sighting here.
+        Voila! Saw a Squirrel? Please add your new sighting here.
 		</p>
 	</div>
 </div>
-<div class="container">
+<div class="container" align="center">
 		<form id="submit" method="post" action="{% url 'sightings:create' %}">
 		{% csrf_token %}
 		<div class="row mb-3">
