@@ -5,14 +5,14 @@
 {% block main %}
 
 <div class="jumbotron">
-        <div class="container">
+        <div class="container" align="center">
                 <h1> {{squirrel.unique_squirrel_id}}</h1>
                 <p class="lead">
                 Please update any necessary information about the sighting.
                 </p>
 	</div>
 </div>
-	<div class="container">
+	<div class="container" align="center">
 		<form id="submit" method="post">
 				  {% csrf_token %}
             <div class="row mb-3">
