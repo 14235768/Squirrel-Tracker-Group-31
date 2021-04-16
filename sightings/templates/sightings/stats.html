@@ -6,54 +6,54 @@
 
 
 <div class="jumbotron">
-        <div class="container">
+        <div class="container" align="center">
                 <h1 class="display-3">Sightings Stats</h1>
-                <p>
-                General statistics
+                <p class="lead">
+                General statistics of Squirrel Sightings
                 </p>
         </div>
 </div>
 
-<div class="container">
+<div class="container" align="center">
 	<h2> Total Number of Sightings : {{ squirrels.count }}</h2>
 	<p>
 	<h3> Shift Stats </h3>
-	<ul>
+	<p>
 		<li> Number of sightings in AM shift : {{ AM.count }} </li>
 		<li> Number of sightings in PM shift : {{ PM.count }} </li>
-	</ul>
+	</p>
 	</p>
 
 	<p>
 	<h3> Age Stats </h3>
-	<ul>
+	<p>
 		<li> Number of ADULT squirrels : {{ Adult.count }} </li>
 		<li> Number of JUVENILE squirrels : {{ Juven.count }} </li>
-	</ul>
+	</p>
 	</p>
 
 	<p>
 	<h3> Location Stats </h3>
-	<ul>
+	<p>
 		<li> Number of sightings found ABOVE GROUND : {{ AbGr.count }} </li>
 		<li> Number of sightings found on GROUND PLANE : {{GrPl.count}} </li>
-	</ul>
+	</p>
 	</p>
 
 	<p>
 	<h3> Primary Fur Color Stats </h3>
-	<ul>
+	<p>
 		<li> Number of squirrels with primary BLACK fur color : {{Black.count}} </li>
 		<li> Number of squirrels with primary GRAY fur color : {{Gray.count}} </li>
 		<li> Number of squirrels with primary CINNAMON fur color: {{Cinnamon.count}} </li>
-	</ul>
+	</p>
 	</p>
 
 	<p>
 	<h3> Specific Location Stats </h3>
-	<ul>
+	<p>
 		<li> Number of sightings without SPECIFIC LOCATION stats : {{SpeLoc.count}} </li>
-	</ul>
+	</p>
 	</p>
      
         <hr>
