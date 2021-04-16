@@ -10,6 +10,7 @@ The app contains these functions:
 3. general statistics 
 4. a map
 
+Link: http://127.0.0.1:8000/
 
 (The project was done by Carrie Oh and Junyeong Park)
 
