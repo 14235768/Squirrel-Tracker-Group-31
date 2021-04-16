@@ -5,10 +5,10 @@
 {% block main %}
 
 <div class="jumbotron">
-	<div class="container">
+	<div align="center" class="container">
 		<h1 class="display-3">Squirrel Tracker</h1>
 		<p>
-		Peace, Love, SQUIRRELS! Welcome to our website that allows you to allows you to view, add, and edit sightings of squirrels in Central Park.
+        Peace, Love, SQUIRRELS! Welcome to our website that allows you to view, add, and edit sightings of squirrels in Central Park.
 		</p>
         <p>
           <a class="btn btn-primary btn-lg" href="/sightings/stats/"role="button"> General Squirrel Statistics </a>
@@ -19,15 +19,15 @@
 	</div>
 </div>
 
-<div class="container">
+<div class="container" align="center">
 	<div class="row">
 		{% for squirrel in squirrels %}
 		<div class="col-md-4">
 			<h2> {{squirrel.unique_squirrel_id }} </h2>
 			<p>
-			<ul>
+			<p>
 				<li> Date : {{squirrel.date}} </li>
-			</ul>
+			</p>
 			<p>
 			<p>
 			<a class="btn btn-secondary" href="/sightings/{{ squirrel.unique_squirrel_id }}/"> Update Squirrel Sighting </a>
