@@ -1,51 +1,56 @@
 import csv
-import datetime
+
 from django.core.management.base import BaseCommand
-from sightings.models import Sight
+
+from sightings.models import Squirrel
+
+from datetime import datetime
 
 
 class Command(BaseCommand):
+    help = 'Get squirrels census data'
+
     def add_arguments(self, parser):
-        parser.add_argument('csv_file')
+        parser.add_argument('squirrels_file', help='file containing squirrel details')
 
     def handle(self, *args, **options):
-        with open(options['csv_file']) as fp:
+        file_ = options['squirrels_file']
+
+        with open(file_) as fp:
             reader = csv.DictReader(fp)
-            data = list(reader)
 
-        def convertBool(str_):
-            if str(str_) in ['TRUE', 'true', 'True']:
-                str_ = True
-            elif str(str_) in ['FALSE', 'false', 'False']:
-                str_ = False
-            else:
-                str_ = None
-            return str_
+            for item in reader:
+                obj = Squirrel()
+                obj.latitude = item['Y']
+                obj.longitude = item['X']
+                obj.unique_squirrel_id = item['Unique Squirrel ID']
+                obj.hectare = item['Hectare']
+                obj.shift = item['Shift']
+                obj.date = datetime.strptime(item['Date'], '%m%d%Y').date()
+                obj.hectare_squirrel_number = item['Hectare Squirrel Number']
+                obj.age = item['Age']
+                obj.primary_fur_color = item['Primary Fur Color']
+                obj.highlight_fur_color = item['Highlight Fur Color']
+                obj.color_notes = item['Color notes']
+                obj.location = item['Location']
+                obj.specific_location = item['Specific Location']
+                obj.running = item['Running']
+                obj.chasing = item['Chasing']
+                obj.climbing = item['Climbing']
+                obj.eating = item['Eating']
+                obj.foraging = item['Foraging']
+                obj.other_activities = item['Other Activities']
+                obj.kuks = item['Kuks']
+                obj.quaas = item['Quaas']
+                obj.moans = item['Moans']
+                obj.tail_flags = item['Tail flags']
+                obj.tail_twitch = item['Tail twitches']
+                obj.approaches = item['Approaches']
+                obj.indifferent = item['Indifferent']
+                obj.runs_from = item['Runs from']
+                obj.other_interactions = item['Other Interactions']
 
-        for item in data:
-            s = Sight(
-                Longitude=item['X'],
-                Latitude=item['Y'],
-                Unique_Squirrel_Id=item['Unique Squirrel ID'],
-                Shift=item['Shift'],
-                Date=datetime.datetime.strptime(item['Date'], '%m%d%Y'),
-                Age=item['Age'],
-                Primary_Fur_Color=item['Primary Fur Color'],
-                Location=item['Location'],
-                Specific_Location=item['Specific Location'],
-                Running=convertBool(item['Running']),
-                Chasing=convertBool(item['Chasing']),
-                Climbing=convertBool(item['Climbing']),
-                Eating=convertBool(item['Eating']),
-                Foraging=convertBool(item['Foraging']),
-                Other_Activities=item['Other Activities'],
-                Kuks=convertBool(item['Kuks']),
-                Quaas=convertBool(item['Quaas']),
-                Moans=convertBool(item['Moans']),
-                Tail_Flags=convertBool(item['Tail flags']),
-                Tail_Twitches=convertBool(item['Tail twitches']),
-                Approaches=convertBool(item['Approaches']),
-                Indifferent=convertBool(item['Indifferent']),
-                Runs_From=convertBool(item['Runs from']),
-            )
-            s.save()
+                obj.save()
+
+        msg = f'You are importing from {file_}'
+        self.stdout.write(self.style.SUCCESS(msg))
